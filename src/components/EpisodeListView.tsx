@@ -1,4 +1,4 @@
-import episodes from "../episodes.json";
+import { formatSummary } from "../utils/summaryFormat";
 import { generateEpCode } from "../utils/episodeCode";
 
 export interface IEpisode {
@@ -31,8 +31,8 @@ export function EpisodesMap(props: EpisodeMapProps): JSX.Element {
       <h1>
         {props.episodeInfo.name} - {generateEpCode(props.episodeInfo)}
       </h1>
-      <img src={props.episodeInfo.image.medium} />
-      <div>{props.episodeInfo.summary}</div>
+      <img src={props.episodeInfo.image.medium} alt=""/>
+      <div>{formatSummary(props.episodeInfo)}</div>
     </>
   );
 }

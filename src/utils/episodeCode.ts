@@ -1,4 +1,3 @@
-import episodes from "../episodes.json";
 import { IEpisode } from "../components/EpisodeListView";
 
 export function generateEpCode(episode: IEpisode): string {
