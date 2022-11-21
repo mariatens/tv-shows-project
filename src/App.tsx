@@ -1,7 +1,19 @@
-import { greet } from "./utils/greet";
+import { Footer } from "./components/Footer";
+import episodes from "./episodes.json";
+import { EpisodesMap } from "./components/EpisodeListView";
 
 function App(): JSX.Element {
-  return <h1>{greet("World")}</h1>;
+  return (
+    <>
+      <p>
+        {" "}
+        {episodes.map((episode) => {
+          return <EpisodesMap episodeInfo={episode} key={episode.id} />;
+        })}
+      </p>
+      <Footer />
+    </>
+  );
 }
 
 export default App;
