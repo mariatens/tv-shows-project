@@ -3,6 +3,7 @@ import episodes from "./episodes.json";
 import { EpisodesMap } from "./components/EpisodeListView";
 import { useState } from "react";
 import { SearchBar } from "./components/SearchBar";
+import { searchCriteria } from "./utils/searchCriteria";
 
 function App(): JSX.Element {
   const [input, setInput] = useState<string>("");
@@ -11,12 +12,14 @@ function App(): JSX.Element {
     setInput(searchInput);
   };
 
+  const filteredEpisodes = searchCriteria(episodes, input)
+
   return (
     <>
       <SearchBar value={input} onChange={handleSearchInput} />
       <p>
         {" "}
-        {episodes.map((episode) => {
+        {filteredEpisodes.map((episode) => {
           return <EpisodesMap episodeInfo={episode} key={episode.id} />;
         })}
       </p>
