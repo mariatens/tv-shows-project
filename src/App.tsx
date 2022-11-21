@@ -4,6 +4,7 @@ import { EpisodesMap } from "./components/EpisodeListView";
 import { useState } from "react";
 import { SearchBar } from "./components/SearchBar";
 import { searchCriteria } from "./utils/searchCriteria";
+import './style.css'
 
 function App(): JSX.Element {
   const [input, setInput] = useState<string>("");
@@ -16,13 +17,18 @@ function App(): JSX.Element {
 
   return (
     <>
+      <header className= "header">
+      <h1 className = "title"> TV show DataBase </h1>
       <SearchBar value={input} onChange={handleSearchInput} />
-      <p>
+      </header>
+      <div className = "all-episodes">
+        <p>
         {" "}
         {filteredEpisodes.map((episode) => {
           return <EpisodesMap episodeInfo={episode} key={episode.id} />;
         })}
-      </p>
+        </p>
+        </div>
       <Footer />
     </>
   );
