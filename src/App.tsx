@@ -1,5 +1,6 @@
 import { Footer } from "./components/Footer";
 import episodes from "./episodes.json";
+// import episodes from "./simpsons.json"
 import { EpisodesMap } from "./components/EpisodeListView";
 import { useState } from "react";
 import { SearchBar } from "./components/SearchBar";
