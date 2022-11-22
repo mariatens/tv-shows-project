@@ -11,7 +11,7 @@ export interface IEpisode {
   airdate: string;
   airtime: string;
   airstamp: string;
-  rating: { average: number|null };
+  rating: { average: number | null };
   runtime: number;
   image: {
     medium: string;
