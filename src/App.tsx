@@ -5,17 +5,19 @@ import { useState } from "react";
 import { SearchBar } from "./components/SearchBar";
 
 function App(): JSX.Element {
-  const [input, setInput] = useState<string>("");
+  const [input, setInput] = useState<string>("")
 
-  const handleSearchInput = (searchInput: string) => {
-    setInput(searchInput);
-  };
+  const handleSearchInput = (searchInput:string) => {
+    setInput(searchInput)
+  }
 
   return (
     <>
-      <SearchBar value={input} onChange={handleSearchInput} />
+      <SearchBar 
+        value={input}
+        onChange={handleSearchInput}
+      />
       <p>
-        {" "}
         {episodes.map((episode) => {
           return <EpisodesMap episodeInfo={episode} key={episode.id} />;
         })}
