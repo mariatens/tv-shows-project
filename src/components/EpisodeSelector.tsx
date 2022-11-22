@@ -6,10 +6,12 @@
 import shows from '../shows.json'
 import { IEpisode } from './EpisodeListView'
 import {useState, useEffect} from "react"
+import { generateEpCode } from '../utils/episodeCode';
 
 interface EpisodeSelectorProps {
-    epId: number;
-    epName: string;
+    onChange: ()=> void;
+    episode: IEpisode;
+    value: number
   }
 
 export function EpisodeSelector(props: EpisodeSelectorProps): JSX.Element{
@@ -28,7 +30,9 @@ export function EpisodeSelector(props: EpisodeSelectorProps): JSX.Element{
       
     return (
                 <li className="menu-item">
-                    <button>{props.epName}</button>
+                    <button onChange = {props.onChange}
+                     value = {props.episode.id}>
+                      {generateEpCode(props.episode)} - {props.episode.name}</button>
                 </li>
           );
 }
