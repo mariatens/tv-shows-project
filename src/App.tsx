@@ -36,7 +36,8 @@ function App(): JSX.Element {
 
   // drop down episode selector
   // have something that stops the mapping of ALL
-  // if something is selected
+  // if something is selected COND RENDERING.
+  // add deselector (maybe bool)
   const handleSelector = (id: number) => {
     setSelectedEp(id);
   };
