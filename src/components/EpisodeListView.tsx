@@ -28,13 +28,11 @@ interface EpisodeMapProps {
 export function EpisodesMap(props: EpisodeMapProps): JSX.Element {
   return (
     <>
-    <div>
       <h1>
         {props.episodeInfo.name} - {generateEpCode(props.episodeInfo)}
       </h1>
       <img src={props.episodeInfo.image.medium} alt="" />
       <div>{formatSummary(props.episodeInfo)}</div>
-      </div>
     </>
   );
 }

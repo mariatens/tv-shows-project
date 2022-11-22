@@ -1,26 +1,27 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    background: lightblue;
+  display: flex;
+  justify-content: space-between;
+  background: lightblue;
 }
 .title {
-   color: white;
-   margin-left: 10px;
+  color: white;
+  margin-left: 10px;
 }
 .search-bar {
-    height: 20px;
-    margin-top: 20px;
-    margin-right: 20px
+  height: 20px;
+  width: 200px;
+  margin-top: 30px;
+  margin-right: 20px;
+  border-radius: 5%;
 }
 
 .all-episodes {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
 }
 
 .episode {
-    width: 200px;
+  width: 200px;
 
 }
-
-
