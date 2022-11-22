@@ -22,7 +22,7 @@ function App(): JSX.Element {
         <SearchBar value={input} onChange={handleSearchInput} />
       </header>
       <div className = "all-episodes">
-        <p>
+        <p className = "episode">
         {filteredEpisodes.map((episode) => {
           return <EpisodesMap episodeInfo={episode} key={episode.id} />;
         })}

@@ -1,24 +1,26 @@
-.header{
+.header {
     display: flex;
     justify-content: space-between;
     background: lightblue;
 }
-.title{
+.title {
    color: white;
    margin-left: 10px;
 }
-.search-bar{
+.search-bar {
     height: 20px;
     margin-top: 20px;
     margin-right: 20px
 }
 
-.all-episodes{
+.all-episodes {
     display: flex;
+    flex-wrap: wrap;
 }
 
-/* .episode{
-    width: 100px;
-} */
+.episode {
+    width: 200px;
+
+}
 
 

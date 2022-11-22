@@ -28,7 +28,7 @@ interface EpisodeMapProps {
 export function EpisodesMap(props: EpisodeMapProps): JSX.Element {
   return (
     <>
-    <div className = "episode">
+    <div>
       <h1>
         {props.episodeInfo.name} - {generateEpCode(props.episodeInfo)}
       </h1>
