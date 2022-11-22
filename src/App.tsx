@@ -18,6 +18,7 @@ function App(): JSX.Element {
       setEp(jsonBody);
     };
     fetchEp();
+    console.log("HERE")
   }, []);
 
   const handleSearchInput = (searchInput: string) => {
@@ -33,11 +34,11 @@ function App(): JSX.Element {
         <SearchBar value={input} onChange={handleSearchInput} />
       </header>
       <div className="all-episodes">
-        <p className="episode">
+        <div className="episode">
           {filteredEpisodes.map((episode) => {
             return <EpisodesMap episodeInfo={episode} key={episode.id} />;
           })}
-        </p>
+        </div>
       </div>
       <Footer />
     </>
