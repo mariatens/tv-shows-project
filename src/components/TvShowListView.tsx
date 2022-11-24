@@ -8,11 +8,11 @@ export interface ITvShow {
   language: string;
   genres: string[];
   status: string;
-  runtime: number;
-  averageRuntime: number;
-  premiered: string;
-  ended: string;
-  officialSite: string;
+  runtime: null | number;
+  averageRuntime: null | number;
+  premiered: null | string;
+  ended: null | string;
+  officialSite: null | string;
   schedule: {
     time: string;
     days: string[];
@@ -21,7 +21,7 @@ export interface ITvShow {
     average: number | null;
   };
   weight: number;
-  network: {
+  network: null | {
     id: number;
     name: string;
     country: {
@@ -34,18 +34,18 @@ export interface ITvShow {
   webChannel: {
     id: number;
     name: string;
-    country: {
+    country: null | {
       name: string;
       code: string;
       timezone: string;
     };
-    officialSite: number | string | null;
-  };
+    officialSite: null | string;
+  } | null;
   dvdCountry: null | string;
   externals: {
     tvrage: number;
-    thetvdb: number;
-    imdb: string;
+    thetvdb: null | number;
+    imdb: null | string;
   };
   image: {
     medium: string;
@@ -57,7 +57,10 @@ export interface ITvShow {
     self: {
       href: string;
     };
-    previousepisode: {
+    previousepisode?: {
+      href: string;
+    };
+    nextepisode?: {
       href: string;
     };
   };
