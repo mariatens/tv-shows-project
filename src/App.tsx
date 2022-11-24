@@ -12,7 +12,7 @@ import { EpisodeSelector } from "./components/EpisodeSelector";
 function App(): JSX.Element {
   const [input, setInput] = useState<string>("");
   const [eps, setEps] = useState<IEpisode[]>([]);
-  const [selectedEp, setSelectedEp] = useState<number>();
+  const [selectedEp, setSelectedEp] = useState<number>(NaN);
   const [dropDownOpen, setDropDownOpen] = useState(false);
 
   useEffect(() => {
@@ -41,11 +41,22 @@ function App(): JSX.Element {
   const handleSelector = (id: number) => {
     setSelectedEp(id);
   };
-  const selectedDropDownEp = episodes
-    .filter((ep: IEpisode) => selectedEp === ep.id)
-    .map((ep) => {
-      return <EpisodesMap episodeInfo={ep} key={ep.id} />;
+  // const selectedDropDownEp = episodes
+  //   .filter((ep: IEpisode) => selectedEp === ep.id)
+  //   .map((ep) => {
+  //     return <EpisodesMap episodeInfo={ep} key={ep.id} />;
+  //   });
+
+    const filteredEpisodesRender = isNaN(selectedEp) ? 
+    filteredEpisodes.map((episode) => {
+      return <EpisodesMap episodeInfo={episode} key={episode.id}/>})
+      :
+      filteredEpisodes
+        .filter((ep: IEpisode) => selectedEp === ep.id)
+        .map((episode) => {
+          return <EpisodesMap episodeInfo={episode} key={episode.id} />;
     });
+
 
   return (
     <>
@@ -76,11 +87,8 @@ function App(): JSX.Element {
           ) : null}
         </div>
       </header>
-      {selectedDropDownEp}
       <div className="all-episodes">
-        {filteredEpisodes.map((episode) => {
-          return <EpisodesMap episodeInfo={episode} key={episode.id} />;
-        })}
+      {filteredEpisodesRender}
       </div>
       <Footer />
     </>
