@@ -34,18 +34,13 @@ function App(): JSX.Element {
     setDropDownOpen(!dropDownOpen);
   };
 
-  // drop down episode selector
-  // have something that stops the mapping of ALL
-  // if something is selected COND RENDERING.
-  // add deselector (maybe bool)
   const handleSelector = (id: number) => {
-    setSelectedEp(id);
+    if (selectedEp === id){
+      setSelectedEp(NaN)
+    }else{
+      setSelectedEp(id)   
+     }
   };
-  // const selectedDropDownEp = episodes
-  //   .filter((ep: IEpisode) => selectedEp === ep.id)
-  //   .map((ep) => {
-  //     return <EpisodesMap episodeInfo={ep} key={ep.id} />;
-  //   });
 
     const filteredEpisodesRender = isNaN(selectedEp) ? 
     filteredEpisodes.map((episode) => {
