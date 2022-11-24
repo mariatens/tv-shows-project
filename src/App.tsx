@@ -13,6 +13,7 @@ import { ITvShow, ShowSelector } from "./components/TvShowListView";
 function App(): JSX.Element {
   const [input, setInput] = useState<string>("");
   const [eps, setEps] = useState<IEpisode[]>([]);
+  // change to epID
   const [selectedEp, setSelectedEp] = useState<number>(NaN);
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const [showID, setShowID] = useState<number>(NaN);
