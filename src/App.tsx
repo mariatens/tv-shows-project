@@ -8,7 +8,7 @@ import { SearchBar } from "./components/SearchBar";
 import { searchCriteria } from "./utils/searchCriteria";
 import "./style.css";
 import { EpisodeSelector } from "./components/EpisodeSelector";
-import { ITvShow, TvShowMap } from "./components/TvShowListView";
+import { ITvShow, ShowSelector } from "./components/TvShowListView";
 
 function App(): JSX.Element {
   const [input, setInput] = useState<string>("");
@@ -16,6 +16,7 @@ function App(): JSX.Element {
   const [selectedEp, setSelectedEp] = useState<number>(NaN);
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const [showID, setShowID] = useState<number>(NaN);
+  const [showDropDownOpen, setShowDropDownOpen] = useState(false);
 
   // useEffect(() => {
   //   const fetchEp = async () => {
@@ -51,25 +52,25 @@ function App(): JSX.Element {
   };
 
   const handleShowDropDownOpen = () => {
-    setDropDownOpen(!dropDownOpen);
+    setShowDropDownOpen(!showDropDownOpen);
   };
 
-  const handleShowSelector = (showID: number) => {
-    if (selectedEp === showID) {
+  const handleShowSelector = (id: number) => {
+    if (showID === id) {
       setSelectedEp(NaN);
     } else {
-      setSelectedEp(showID);
+      setSelectedEp(id);
     }
   };
 
-  const TvShowRender = isNaN(selectedEp)
+  const TvShowRender = isNaN(showID)
     ? shows.map((show) => {
-        return <TvShowMap tvShowInfo={show} key={show.id} />;
+        return <ShowSelector tvShowInfo={show} key={show.id} onClick = {()=> handleShowSelector(show.id)}/>;
       })
     : shows
         .filter((show) => showID === show.id)
         .map((show) => {
-          return <TvShowMap tvShowInfo={show} key={show.id} />;
+          return <ShowSelector tvShowInfo={show} key={show.id} onClick= {()=> handleShowSelector(show.id)}/>;
         });
 
   // make this into a ternary ===
@@ -118,14 +119,14 @@ function App(): JSX.Element {
           <button className="dropdown-button" onClick={handleShowDropDownOpen}>
             Select TV show ▾
           </button>
-          {dropDownOpen ? (
+          {showDropDownOpen ? (
             <ul className="menu">
-              {filteredEpisodes.map((episode: IEpisode) => {
+              {shows.map((show: ITvShow) => {
                 return (
                   <ShowSelector
-                    key={episode.id}
+                    key={show.id}
                     onClick={() => handleShowSelector(show.id)}
-                    episode={episode}
+                    tvShowInfo={show}
                   />
                 );
               })}
@@ -134,6 +135,7 @@ function App(): JSX.Element {
         </div>
       </header>
       <div className="all-episodes">{filteredEpisodesRender}</div>
+      <div className="all-episodes">{TvShowRender}</div>
       <Footer />
     </>
   );
