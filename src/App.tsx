@@ -107,6 +107,24 @@ function App(): JSX.Element {
     <>
       <header className="header">
         <h1 className="title"> TV show DataBase </h1>
+        <div className="dropdown">
+          <button className="dropdown-button" onClick={handleShowDropDownOpen}>
+            Select TV show     ▾
+          </button>
+          {showDropDownOpen ? (
+            <ul className="menu">
+              {shows.map((show: ITvShow) => {
+                return (
+                  <TvShowSelector
+                    key={show.id}
+                    onClick={() => handleShowSelector(show.id)}
+                    show={show}
+                  />
+                );
+              })}
+            </ul>
+          ) : null}
+        </div>
         <div className="search-bar-&-amount">
           <SearchBar value={input} onChange={handleSearchInput} />
           <p className="display-amount">
@@ -132,24 +150,6 @@ function App(): JSX.Element {
             </ul>
           ) : null}
         </div> */}
-        <div className="dropdown">
-          <button className="dropdown-button" onClick={handleShowDropDownOpen}>
-            Select TV show ▾
-          </button>
-          {showDropDownOpen ? (
-            <ul className="menu">
-              {shows.map((show: ITvShow) => {
-                return (
-                  <TvShowSelector
-                    key={show.id}
-                    onClick={() => handleShowSelector(show.id)}
-                    show={show}
-                  />
-                );
-              })}
-            </ul>
-          ) : null}
-        </div>
       </header>
       <div className="all-episodes">{filteredEpisodesRender}</div>
       {/* <div className="all-episodes">{TvShowRender}</div> */}
