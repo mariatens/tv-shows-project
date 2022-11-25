@@ -71,12 +71,12 @@ interface TvShowMapProps {
   onClick: () => void;
 }
 
-export function ShowSelector(props: TvShowMapProps): JSX.Element {
+function ShowSelector(props: TvShowMapProps): JSX.Element {
   return (
-    <button onClick = {props.onClick} className="episode">
+    <button onClick={props.onClick} className="episode">
       <h1>{props.tvShowInfo.name}</h1>
       <img src={props.tvShowInfo.image.medium} alt="" />
-      <div>{formatSummary(props.tvShowInfo)}</div>
+      {/* <div>{formatSummary(props.tvShowInfo)}</div> */}
     </button>
   );
 }
