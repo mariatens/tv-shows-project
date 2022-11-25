@@ -110,7 +110,8 @@ function App(): JSX.Element {
         <div className="search-bar-&-amount">
           <SearchBar value={input} onChange={handleSearchInput} />
           <p className="display-amount">
-            displaying {filteredEpisodes.length} out of {filteredEpisodes.length}
+            displaying {filteredEpisodes.length} out of{" "}
+            {filteredEpisodes.length}
           </p>
         </div>
         {/* <div className="dropdown">

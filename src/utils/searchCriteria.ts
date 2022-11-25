@@ -5,11 +5,9 @@ export function searchCriteria(
   searchItem: string
 ): IEpisode[] {
   return episodes.filter((episode: IEpisode) => {
-    const name = episode.name.toLowerCase().includes(searchItem.toLowerCase())
-    return (
-      episode.summary ?
-      name || episode.summary.toLowerCase().includes(searchItem.toLowerCase())
-      : name
-    );
+    const name = episode.name.toLowerCase().includes(searchItem.toLowerCase());
+    return episode.summary
+      ? name || episode.summary.toLowerCase().includes(searchItem.toLowerCase())
+      : name;
   });
 }

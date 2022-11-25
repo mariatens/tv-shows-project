@@ -34,7 +34,9 @@ export function EpisodeView(props: EpisodeViewProps): JSX.Element {
       <h1>
         {props.episodeInfo.name} - {generateEpCode(props.episodeInfo)}
       </h1>
-      {props.episodeInfo.image && <img src={props.episodeInfo.image.medium} alt="" />}
+      {props.episodeInfo.image && (
+        <img src={props.episodeInfo.image.medium} alt="" />
+      )}
       <div>
         {props.episodeInfo.summary && formatSummary(props.episodeInfo.summary)}
       </div>
