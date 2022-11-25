@@ -31,15 +31,17 @@ interface EpisodeViewProps {
 export function EpisodeView(props: EpisodeViewProps): JSX.Element {
   return (
     <div className="episode">
-      <h1>
+      <h1 className="ep-title">
         {props.episodeInfo.name} - {generateEpCode(props.episodeInfo)}
       </h1>
       {props.episodeInfo.image && (
-        <img src={props.episodeInfo.image.medium} alt="" />
+        <img className="ep-img" src={props.episodeInfo.image.medium} alt="" />
       )}
-      <div>
+      <br />
+      <div className="ep-summary">
         {props.episodeInfo.summary && formatSummary(props.episodeInfo.summary)}
       </div>
+      <br />
     </div>
   );
 }
