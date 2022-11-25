@@ -1,4 +1,4 @@
-import { IEpisode } from "../components/EpisodeListView";
+import { IEpisode } from "../components/EpisodeView";
 
 export function generateEpCode(episode: IEpisode): string {
   const epCode = [];

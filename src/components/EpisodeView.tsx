@@ -13,29 +13,31 @@ export interface IEpisode {
   airstamp: string;
   rating: { average: number | null };
   runtime: number;
-  image: {
+  image?: null | {
     medium: string;
     original: string;
   };
-  summary: string;
+  summary?: string;
   _links: {
     self: { href: string };
     show?: { href?: string };
   };
 }
 
-interface EpisodeMapProps {
+interface EpisodeViewProps {
   episodeInfo: IEpisode;
 }
 
-export function EpisodesMap(props: EpisodeMapProps): JSX.Element {
+export function EpisodeView(props: EpisodeViewProps): JSX.Element {
   return (
     <div className="episode">
       <h1>
         {props.episodeInfo.name} - {generateEpCode(props.episodeInfo)}
       </h1>
-      <img src={props.episodeInfo.image.medium} alt="" />
-      <div>{formatSummary(props.episodeInfo)}</div>
+      {props.episodeInfo.image && <img src={props.episodeInfo.image.medium} alt="" />}
+      <div>
+        {props.episodeInfo.summary && formatSummary(props.episodeInfo.summary)}
+      </div>
     </div>
   );
 }
