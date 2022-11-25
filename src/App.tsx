@@ -8,7 +8,7 @@ import { SearchBar } from "./components/SearchBar";
 import { searchCriteria } from "./utils/searchCriteria";
 import "./style.css";
 // import { EpisodeSelector } from "./components/EpisodeSelector";
-import { ITvShow } from "./components/TvShowListView";
+import { ITvShow } from "./components/TvShowView";
 import { TvShowSelector } from "./components/ShowSelector";
 
 function App(): JSX.Element {
@@ -16,7 +16,9 @@ function App(): JSX.Element {
   const [eps, setEps] = useState<IEpisode[]>([]);
   const [showID, setShowID] = useState<number>(NaN);
   const [showDropDownOpen, setShowDropDownOpen] = useState(false);
+  // for the dropdown for choosing episodes
   // const [selectedEp, setSelectedEp] = useState<number>(NaN);
+  // for the dropdown of the episodes
   // const [dropDownOpen, setDropDownOpen] = useState(false);
   useEffect(() => {
     if (!isNaN(showID)) {

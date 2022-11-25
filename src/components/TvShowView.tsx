@@ -66,17 +66,17 @@ export interface ITvShow {
   };
 }
 
-interface TvShowMapProps {
+interface TvShowProps {
   tvShowInfo: ITvShow;
   onClick: () => void;
 }
 
-function ShowSelector(props: TvShowMapProps): JSX.Element {
+function TvShowView(props: TvShowProps): JSX.Element {
   return (
     <button onClick={props.onClick} className="episode">
       <h1>{props.tvShowInfo.name}</h1>
       <img src={props.tvShowInfo.image.medium} alt="" />
-      {/* <div>{formatSummary(props.tvShowInfo)}</div> */}
+      {/* <div>{formatSummary(props.tvShowInfo.summary)}</div> */}
     </button>
   );
 }
