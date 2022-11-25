@@ -1,5 +1,5 @@
 import { Footer } from "./components/Footer";
-import episodes from "./episodes.json";
+// import episodes from "./episodes.json";
 // import episodes from "./simpsons.json"
 import shows from "./shows.json";
 import { EpisodeView, IEpisode } from "./components/EpisodeView";
