@@ -73,6 +73,7 @@ function App(): JSX.Element {
     } else {
       setShowID(id);
     }
+    setShowDropDownOpen(!showDropDownOpen)
   };
 
   // const TvShowRender = isNaN(showID)
