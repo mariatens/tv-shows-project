@@ -1,10 +1,8 @@
 // https://api.tvmaze.com/shows/SHOW_ID/episodes where SHOW_ID should be replaced
 // with the numeric id of the selected show.
 
-// link name to id
-
 // import shows from "../shows.json";
-import { ITvShow } from "./TvShowListView";
+import { ITvShow } from "./TvShowView";
 // import { useState, useEffect } from "react";
 
 interface TvShowSelectorProps {

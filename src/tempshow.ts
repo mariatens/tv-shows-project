@@ -1,4 +1,4 @@
-import { ITvShow } from "./components/TvShowListView";
+import { ITvShow } from "./components/TvShowView";
 const tempShows: ITvShow[] = [
   {
     id: 250,
