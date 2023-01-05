@@ -106,6 +106,19 @@ function App(): JSX.Element {
     return <EpisodeView episodeInfo={episode} key={episode.id} />;
   });
 
+  const orderedShows = shows.sort((a, b) => {
+    const fa = a.name;
+    const fb = b.name;
+
+    if (fa < fb) {
+      return -1;
+    }
+    if (fa > fb) {
+      return 1;
+    }
+    return 0;
+  })
+
   return (
     <>
       <header className="header">
@@ -116,7 +129,8 @@ function App(): JSX.Element {
           </button>
           {showDropDownOpen ? (
             <ul className="menu">
-              {shows.map((show: ITvShow) => {
+              
+              {orderedShows.map((show: ITvShow) => {
                 return (
                   <TvShowSelector
                     key={show.id}
