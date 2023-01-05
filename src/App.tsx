@@ -1,11 +1,10 @@
 import { Footer } from "./components/Footer";
-import shows from "./shows.json";
 import { EpisodeView, IEpisode } from "./components/EpisodeView";
 import { useState, useEffect } from "react";
 import { SearchBar } from "./components/SearchBar";
 import { searchCriteria } from "./utils/searchCriteria";
 import "./style.css";
-import { ITvShow } from "./components/TvShowView";
+import { ITvShow, TvShowView } from "./components/TvShowView";
 import { TvShowSelector } from "./components/ShowSelector";
 
 function App(): JSX.Element {
@@ -13,6 +12,8 @@ function App(): JSX.Element {
   const [eps, setEps] = useState<IEpisode[]>([]);
   const [showID, setShowID] = useState<number>(NaN);
   const [showDropDownOpen, setShowDropDownOpen] = useState(false);
+  const [shows, setShows] = useState<ITvShow[]>([]);
+  const [view, setView] = useState(false);
   useEffect(() => {
     if (!isNaN(showID)) {
       const link = `https://api.tvmaze.com/shows/${showID}/episodes`;
@@ -20,16 +21,19 @@ function App(): JSX.Element {
         const response = await fetch(link);
         const jsonBody = await response.json();
         setEps(jsonBody);
+        setView(true)
       };
       fetchEp();
     } else {
-      const link = `https://api.tvmaze.com/shows/82/episodes`;
-      const fetchEp = async () => {
+      const link = `https://api.tvmaze.com/shows`;
+      const fetchShows = async () => {
         const response = await fetch(link);
         const jsonBody = await response.json();
-        setEps(jsonBody);
+        setShows(jsonBody);
+      setView(false)
+
       };
-      fetchEp();
+      fetchShows();
     }
   }, [showID]);
 
@@ -38,6 +42,7 @@ function App(): JSX.Element {
   };
 
   const filteredEpisodes = searchCriteria(eps, input);
+  const filteredShows: ITvShow[] = searchCriteria(shows, input)
 
   const handleShowDropDownOpen = () => {
     setShowDropDownOpen(!showDropDownOpen);
@@ -45,14 +50,30 @@ function App(): JSX.Element {
   const handleShowSelector = (id: number) => {
     if (showID === id) {
       setShowID(NaN);
+      setView(false)
     } else {
       setShowID(id);
+    setView(true)
+    console.log(view)
     }
     setShowDropDownOpen(!showDropDownOpen);
+  };
+  const handleShowSelectorOnClick = (id: number) => {
+    if (showID === id) {
+      setShowID(NaN);
+      setView(false)
+    } else {
+      setShowID(id);
+    setView(true)
+    console.log(view)
+    }
   };
 
   const filteredEpisodesRender = filteredEpisodes.map((episode) => {
     return <EpisodeView episodeInfo={episode} key={episode.id} />;
+  });
+  const filteredShowsRender = filteredShows.map((show: ITvShow) => {
+    return <TvShowView onClick = {() => handleShowSelectorOnClick(show.id)} tvShowInfo={show} key={show.id} />;
   });
 
   const orderedShows = shows.sort((a, b) => {
@@ -71,7 +92,7 @@ function App(): JSX.Element {
   return (
     <>
       <header className="header">
-        <h1 className="title"> TV show DataBase </h1>
+        <h1 className="title" onClick = {()=>setView(false)}> TV show DataBase </h1>
         <div className="dropdown">
           <button className="dropdown-button" onClick={handleShowDropDownOpen}>
             Select TV show ▾
@@ -92,13 +113,18 @@ function App(): JSX.Element {
         </div>
         <div className="search-bar-&-amount">
           <SearchBar value={input} onChange={handleSearchInput} />
-          <p className="display-amount">
+          {view ? <p className="display-amount">
             displaying {filteredEpisodes.length} out of{" "}
             {filteredEpisodes.length}
-          </p>
+          </p>:
+          <p className="display-amount">
+            displaying {filteredShows.length} out of{" "}
+            {filteredShows.length}</p>}
+          
         </div>
       </header>
-      <div className="all-episodes">{filteredEpisodesRender}</div>
+      {!view ? <div className="all-episodes">{filteredShowsRender}</div>:
+      <div className="all-episodes">{filteredEpisodesRender}</div>}
       <Footer />
     </>
   );

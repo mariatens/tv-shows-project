@@ -1,3 +1,5 @@
+import { formatSummary } from "../utils/summaryFormat";
+
 export interface ITvShow {
   id: number;
   url: string;
@@ -69,12 +71,12 @@ interface TvShowProps {
   onClick: () => void;
 }
 
-function TvShowView(props: TvShowProps): JSX.Element {
+export function TvShowView(props: TvShowProps): JSX.Element {
   return (
-    <button onClick={props.onClick} className="episode">
+    <button onClick = {props.onClick} className="tvshow">
       <h1>{props.tvShowInfo.name}</h1>
       <img src={props.tvShowInfo.image.medium} alt="" />
-      {/* <div>{formatSummary(props.tvShowInfo.summary)}</div> */}
+      <div>{formatSummary(props.tvShowInfo.summary)}</div>
     </button>
   );
 }

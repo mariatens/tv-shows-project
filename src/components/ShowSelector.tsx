@@ -11,6 +11,7 @@ interface TvShowSelectorProps {
 }
 
 export function TvShowSelector(props: TvShowSelectorProps): JSX.Element {
+
   return (
     <li className="menu-item">
       <button onClick={props.onClick}>{props.show.name}</button>

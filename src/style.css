@@ -13,6 +13,11 @@
   color: white;
   margin-left: 10px;
 }
+.title:hover {
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
+}
 
 .search-bar {
   height: 20px;
@@ -37,6 +42,15 @@
   border: 2px solid lightblue;
   border-radius: 5%;
   margin: 5px;
+}
+.tvshow{
+  width: 250px;
+  border: 2px solid lightblue;
+  border-radius: 5%;
+  margin: 5px;
+}
+.tvshow:hover{
+  cursor: pointer
 }
 .ep-img {
   width: 200px;
