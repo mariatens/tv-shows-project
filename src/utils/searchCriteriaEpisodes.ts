@@ -1,11 +1,10 @@
 import { IEpisode } from "../components/EpisodeView";
-import { ITvShow } from "../components/TvShowView";
 
-export function searchCriteria(
-  media: any,
+export function searchCriteriaEpisodes(
+  media: IEpisode[],
   searchItem: string
-): any[] {
-  return media.filter((item: any) => {
+): IEpisode[] {
+  return media.filter((item: IEpisode) => {
     const name = item.name.toLowerCase().includes(searchItem.toLowerCase());
     return item.summary
       ? name || item.summary.toLowerCase().includes(searchItem.toLowerCase())

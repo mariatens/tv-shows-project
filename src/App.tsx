@@ -2,7 +2,8 @@ import { Footer } from "./components/Footer";
 import { EpisodeView, IEpisode } from "./components/EpisodeView";
 import { useState, useEffect } from "react";
 import { SearchBar } from "./components/SearchBar";
-import { searchCriteria } from "./utils/searchCriteria";
+import { searchCriteriaEpisodes } from "./utils/searchCriteriaEpisodes";
+import { searchCriteriaTvShows } from "./utils/searchCriteriaTvShows";
 import "./style.css";
 import { ITvShow, TvShowView } from "./components/TvShowView";
 import { TvShowSelector } from "./components/ShowSelector";
@@ -41,8 +42,8 @@ function App(): JSX.Element {
     setInput(searchInput);
   };
 
-  const filteredEpisodes = searchCriteria(eps, input);
-  const filteredShows: ITvShow[] = searchCriteria(shows, input)
+  const filteredEpisodes = searchCriteriaEpisodes(eps, input);
+  const filteredShows: ITvShow[] = searchCriteriaTvShows(shows, input)
 
   const handleShowDropDownOpen = () => {
     setShowDropDownOpen(!showDropDownOpen);
