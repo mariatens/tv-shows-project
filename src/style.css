@@ -43,14 +43,14 @@
   border-radius: 5%;
   margin: 5px;
 }
-.tvshow{
+.tvshow {
   width: 250px;
   border: 2px solid lightblue;
   border-radius: 5%;
   margin: 5px;
 }
-.tvshow:hover{
-  cursor: pointer
+.tvshow:hover {
+  cursor: pointer;
 }
 .ep-img {
   width: 200px;

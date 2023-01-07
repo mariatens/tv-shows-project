@@ -22,7 +22,7 @@ function App(): JSX.Element {
         const response = await fetch(link);
         const jsonBody = await response.json();
         setEps(jsonBody);
-        setView(true)
+        setView(true);
       };
       fetchEp();
     } else {
@@ -31,8 +31,7 @@ function App(): JSX.Element {
         const response = await fetch(link);
         const jsonBody = await response.json();
         setShows(jsonBody);
-      setView(false)
-
+        setView(false);
       };
       fetchShows();
     }
@@ -43,7 +42,7 @@ function App(): JSX.Element {
   };
 
   const filteredEpisodes = searchCriteriaEpisodes(eps, input);
-  const filteredShows: ITvShow[] = searchCriteriaTvShows(shows, input)
+  const filteredShows: ITvShow[] = searchCriteriaTvShows(shows, input);
 
   const handleShowDropDownOpen = () => {
     setShowDropDownOpen(!showDropDownOpen);
@@ -51,22 +50,22 @@ function App(): JSX.Element {
   const handleShowSelector = (id: number) => {
     if (showID === id) {
       setShowID(NaN);
-      setView(false)
+      setView(false);
     } else {
       setShowID(id);
-    setView(true)
-    console.log(view)
+      setView(true);
+      console.log(view);
     }
     setShowDropDownOpen(!showDropDownOpen);
   };
   const handleShowSelectorOnClick = (id: number) => {
     if (showID === id) {
       setShowID(NaN);
-      setView(false)
+      setView(false);
     } else {
       setShowID(id);
-    setView(true)
-    console.log(view)
+      setView(true);
+      console.log(view);
     }
   };
 
@@ -74,7 +73,13 @@ function App(): JSX.Element {
     return <EpisodeView episodeInfo={episode} key={episode.id} />;
   });
   const filteredShowsRender = filteredShows.map((show: ITvShow) => {
-    return <TvShowView onClick = {() => handleShowSelectorOnClick(show.id)} tvShowInfo={show} key={show.id} />;
+    return (
+      <TvShowView
+        onClick={() => handleShowSelectorOnClick(show.id)}
+        tvShowInfo={show}
+        key={show.id}
+      />
+    );
   });
 
   const orderedShows = shows.sort((a, b) => {
@@ -93,7 +98,10 @@ function App(): JSX.Element {
   return (
     <>
       <header className="header">
-        <h1 className="title" onClick = {()=>setView(false)}> TV show DataBase </h1>
+        <h1 className="title" onClick={() => setView(false)}>
+          {" "}
+          TV show DataBase{" "}
+        </h1>
         <div className="dropdown">
           <button className="dropdown-button" onClick={handleShowDropDownOpen}>
             Select TV show ▾
@@ -114,18 +122,23 @@ function App(): JSX.Element {
         </div>
         <div className="search-bar-&-amount">
           <SearchBar value={input} onChange={handleSearchInput} />
-          {view ? <p className="display-amount">
-            displaying {filteredEpisodes.length} out of{" "}
-            {filteredEpisodes.length}
-          </p>:
-          <p className="display-amount">
-            displaying {filteredShows.length} out of{" "}
-            {filteredShows.length}</p>}
-          
+          {view ? (
+            <p className="display-amount">
+              displaying {filteredEpisodes.length} out of{" "}
+              {filteredEpisodes.length}
+            </p>
+          ) : (
+            <p className="display-amount">
+              displaying {filteredShows.length} out of {filteredShows.length}
+            </p>
+          )}
         </div>
       </header>
-      {!view ? <div className="all-episodes">{filteredShowsRender}</div>:
-      <div className="all-episodes">{filteredEpisodesRender}</div>}
+      {!view ? (
+        <div className="all-episodes">{filteredShowsRender}</div>
+      ) : (
+        <div className="all-episodes">{filteredEpisodesRender}</div>
+      )}
       <Footer />
     </>
   );
