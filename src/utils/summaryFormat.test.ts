@@ -131,6 +131,6 @@ const shows: ITvShow[] = [
 
 test("remove html tags", () => {
   expect(formatSummary(shows[2].summary)).toBe(
-    "Girl Meets World is based on ABC's hugely popular sitcom, Boy Meets World (1993). Set in New York City, the show tells the wonderfully funny heartfelt stories that Boy Meets World is renowned for - only this time from a tween girl's perspective - as the curious and bright 7th grader Riley Matthews and her quick-witted friend Maya Fox embark on an unforgettable middle school experience. But their plans for a carefree year will be adjusted slightly under the watchful eyes of Riley's parents - dad Cory, who's also a faculty member (and their new History teacher), and mom Topanga, who owns a trendy after school hangout that specializes in pudding."
+    'Based on the critically acclaimed series of novels from Kelley Armstrong. Set in Toronto and upper New York State, Bitten follows the adventures of 28-year-old Elena Michaels, the world\'s only female werewolf. An orphan, Elena thought she finally found her "happily ever after" with her new love Clayton, until her life changed forever. With one small bite, the normal life she craved was taken away and she was left to survive life with the Pack.'
   );
 });
