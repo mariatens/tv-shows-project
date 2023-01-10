@@ -31,20 +31,22 @@ function App(): JSX.Element {
       const fetchShows = async () => {
         const response = await fetch(link);
         const jsonBody = await response.json();
-        setShows(jsonBody.sort((a:ITvShow, b:ITvShow) => {
-          const fa = a.name;
-          const fb = b.name;
-      
-          if (fa < fb) {
-            return -1;
-          }
-          if (fa > fb) {
-            return 1;
-          }
-          
-          return 0;
-        }));
-        
+        setShows(
+          jsonBody.sort((a: ITvShow, b: ITvShow) => {
+            const fa = a.name;
+            const fb = b.name;
+
+            if (fa < fb) {
+              return -1;
+            }
+            if (fa > fb) {
+              return 1;
+            }
+
+            return 0;
+          })
+        );
+
         setView(false);
       };
       fetchShows();
