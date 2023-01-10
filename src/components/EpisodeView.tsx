@@ -1,5 +1,5 @@
-import { formatSummary } from "../utils/summaryFormat";
 import { generateEpCode } from "../utils/episodeCode";
+import { formatSummary } from "../utils/summaryFormat";
 
 export interface IEpisode {
   id: number;
