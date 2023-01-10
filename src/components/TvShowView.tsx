@@ -76,7 +76,7 @@ export function TvShowView(props: TvShowProps): JSX.Element {
     <button onClick={props.onClick} className="tvshow">
       <h1>{props.tvShowInfo.name}</h1>
       <img src={props.tvShowInfo.image.medium} alt="" />
-      <div>{formatSummary(props.tvShowInfo.summary)}</div>
+      {/* <div>{formatSummary(props.tvShowInfo.summary)}</div> */}
     </button>
   );
 }

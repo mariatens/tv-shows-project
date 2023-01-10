@@ -1,8 +1,3 @@
-// https://api.tvmaze.com/shows/SHOW_ID/episodes where SHOW_ID should be replaced
-// with the numeric id of the selected show.
-
-// link name to id
-
 import { IEpisode } from "./EpisodeView";
 import { generateEpCode } from "../utils/episodeCode";
 

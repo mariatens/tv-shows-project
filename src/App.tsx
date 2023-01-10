@@ -15,7 +15,7 @@ function App(): JSX.Element {
   const [showDropDownOpen, setShowDropDownOpen] = useState(false);
   const [shows, setShows] = useState<ITvShow[]>([]);
   const [view, setView] = useState(false);
-  
+
   useEffect(() => {
     if (!isNaN(showID)) {
       const link = `https://api.tvmaze.com/shows/${showID}/episodes`;
@@ -31,7 +31,20 @@ function App(): JSX.Element {
       const fetchShows = async () => {
         const response = await fetch(link);
         const jsonBody = await response.json();
-        setShows(jsonBody);
+        setShows(jsonBody.sort((a:ITvShow, b:ITvShow) => {
+          const fa = a.name;
+          const fb = b.name;
+      
+          if (fa < fb) {
+            return -1;
+          }
+          if (fa > fb) {
+            return 1;
+          }
+          
+          return 0;
+        }));
+        
         setView(false);
       };
       fetchShows();
@@ -83,18 +96,19 @@ function App(): JSX.Element {
     );
   });
 
-  const orderedShows = shows.sort((a, b) => {
-    const fa = a.name;
-    const fb = b.name;
+  // const orderShows = (TVshows: ITvShow[]) => {TVshows.sort((a, b) => {
+  //   const fa = a.name;
+  //   const fb = b.name;
 
-    if (fa < fb) {
-      return -1;
-    }
-    if (fa > fb) {
-      return 1;
-    }
-    return 0;
-  });
+  //   if (fa < fb) {
+  //     return -1;
+  //   }
+  //   if (fa > fb) {
+  //     return 1;
+  //   }
+
+  //   return 0;
+  // })}
 
   return (
     <>
@@ -109,7 +123,7 @@ function App(): JSX.Element {
           </button>
           {showDropDownOpen ? (
             <ul className="menu">
-              {orderedShows.map((show: ITvShow) => {
+              {shows.map((show: ITvShow) => {
                 return (
                   <TvShowSelector
                     key={show.id}
