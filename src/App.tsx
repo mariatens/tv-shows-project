@@ -15,6 +15,7 @@ function App(): JSX.Element {
   const [showDropDownOpen, setShowDropDownOpen] = useState(false);
   const [shows, setShows] = useState<ITvShow[]>([]);
   const [view, setView] = useState(false);
+  
   useEffect(() => {
     if (!isNaN(showID)) {
       const link = `https://api.tvmaze.com/shows/${showID}/episodes`;
