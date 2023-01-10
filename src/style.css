@@ -1,7 +1,7 @@
 /* GoT font: https://www.onlinewebfonts.com/download/97c4b25dc74e0ab045154e75a8fdd69d  */
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin:0;
+  margin: 0;
 }
 
 .header {
@@ -45,13 +45,17 @@
   border-radius: 7px;
   margin: 5px;
 }
+.episode > img {
+  border-radius: 7px;
+  margin-top: 3px;
+}
 .tvshow {
   width: 250px;
   border: 2px solid lightblue;
   border-radius: 7px;
   margin: 5px;
 }
-.tvshow>img {
+.tvshow > img {
   border-radius: 7px;
   margin-bottom: 10px;
 }
