@@ -1,4 +1,3 @@
-
 export interface ITvShow {
   id: number;
   url: string;
