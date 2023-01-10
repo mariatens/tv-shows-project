@@ -1,4 +1,3 @@
-import { formatSummary } from "../utils/summaryFormat";
 
 export interface ITvShow {
   id: number;
