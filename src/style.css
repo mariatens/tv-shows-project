@@ -4,29 +4,43 @@
   margin: 0;
 }
 
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
 .header-div {
   display: flex;
   justify-content: space-between;
+
+  grid-column: 1 / span 8;
+  grid-row: 1;
+  padding-top: 0%;
+  z-index: 1;
 }
 .header-img {
   width: 100%;
-  display: block;
+  grid-column: 4 / -1;
+  grid-row: 1;
 }
 
 .title {
-  color: black;
-  margin-left: 10px;
+  color: white;
+  font-size: 40px;
+  text-shadow: 1px 1px 2px red, 0 0 1em rgb(255, 221, 0),
+    0 0 0.2em rgb(255, 81, 0);
+  margin: 10px 0px 0px 25px;
 }
 .title:hover {
   color: rgb(255, 222, 113);
-  margin-left: 10px;
+  margin: 10px 0px 0px 25px;
   cursor: pointer;
 }
 
 .search-bar {
   height: 25px;
   width: 200px;
-  margin: 30px 30px 5px 0px;
+  margin: 30px 40px 5px 0px;
   padding-left: 5px;
   border-radius: 5px;
   border-color: grey;
@@ -41,6 +55,9 @@
 
 .display-amount {
   font-size: x-small;
+  color: white;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0),
+    0 0 0.2em rgb(0, 0, 0);
 }
 
 /* flex box */
@@ -96,8 +113,7 @@
 /* dropdown */
 .dropdown {
   position: relative;
-  margin-right: 100px;
-  margin-top: 30px;
+  margin: 30px 100px 0px 0px;
 }
 .dropdown-button {
   width: 300px;

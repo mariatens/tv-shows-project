@@ -155,7 +155,7 @@ function App(): JSX.Element {
             )}
           </div>
         </div>
-        <img src={headerImg} alt="header" className="header-img" />
+        <img className="header-img" src={headerImg} alt="header" />
       </header>
       {!view ? (
         <div className="all-episodes">{filteredShowsRender}</div>
