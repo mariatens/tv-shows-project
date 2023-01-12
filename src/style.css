@@ -4,19 +4,17 @@
   margin: 0;
 }
 
-.header {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  position: relative;
+.header-div {
+  display: flex;
+  justify-content: space-between;
 }
 .header-img {
   width: 100%;
-  grid-column: 4 / -1;
-  grid-row: 1;
+  display: block;
 }
 
 .title {
-  color: white;
+  color: black;
   margin-left: 10px;
 }
 .title:hover {

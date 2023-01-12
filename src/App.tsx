@@ -116,40 +116,44 @@ function App(): JSX.Element {
   return (
     <>
       <header className="header">
-        <h1 className="title" onClick={() => setView(false)}>
-          {" "}
-          TV show DataBase{" "}
-        </h1>
-        <div className="dropdown">
-          <button className="dropdown-button" onClick={handleShowDropDownOpen}>
-            Select TV show ▾
-          </button>
-          {showDropDownOpen ? (
-            <ul className="menu">
-              {shows.map((show: ITvShow) => {
-                return (
-                  <TvShowSelector
-                    key={show.id}
-                    onClick={() => handleShowSelector(show.id)}
-                    show={show}
-                  />
-                );
-              })}
-            </ul>
-          ) : null}
-        </div>
-        <div className="search-bar-&-amount">
-          <SearchBar value={input} onChange={handleSearchInput} />
-          {view ? (
-            <p className="display-amount">
-              displaying {filteredEpisodes.length} out of{" "}
-              {filteredEpisodes.length}
-            </p>
-          ) : (
-            <p className="display-amount">
-              displaying {filteredShows.length} out of {filteredShows.length}
-            </p>
-          )}
+        <div className="header-div">
+          <h1 className="title" onClick={() => setView(false)}>
+            TV show DataBase
+          </h1>
+          <div className="dropdown">
+            <button
+              className="dropdown-button"
+              onClick={handleShowDropDownOpen}
+            >
+              Select TV show ▾
+            </button>
+            {showDropDownOpen ? (
+              <ul className="menu">
+                {shows.map((show: ITvShow) => {
+                  return (
+                    <TvShowSelector
+                      key={show.id}
+                      onClick={() => handleShowSelector(show.id)}
+                      show={show}
+                    />
+                  );
+                })}
+              </ul>
+            ) : null}
+          </div>
+          <div className="search-bar-&-amount">
+            <SearchBar value={input} onChange={handleSearchInput} />
+            {view ? (
+              <p className="display-amount">
+                displaying {filteredEpisodes.length} out of{" "}
+                {filteredEpisodes.length}
+              </p>
+            ) : (
+              <p className="display-amount">
+                displaying {filteredShows.length} out of {filteredShows.length}
+              </p>
+            )}
+          </div>
         </div>
         <img src={headerImg} alt="header" className="header-img" />
       </header>
