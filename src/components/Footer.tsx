@@ -2,7 +2,7 @@ import linkedinIcon from "../imgs/linkedin-icon.png";
 export function Footer(): JSX.Element {
   return (
     <p>
-      All content sourced from <a href="https://www.TVMaze.com">TVMaze.com</a>
+      API: <a href="https://www.TVMaze.com">TVMaze.com</a>
       <div>
         <a
           className="linkedin-btn"
@@ -12,8 +12,8 @@ export function Footer(): JSX.Element {
             src={linkedinIcon}
             alt="linkedin-icon"
             className="linkedin-icon"
-          />{" "}
-          Alessia
+          />
+          <span className="linkedin-name">Alessia</span>
         </a>
       </div>
       <div>
@@ -25,8 +25,8 @@ export function Footer(): JSX.Element {
             src={linkedinIcon}
             alt="linkedin-icon"
             className="linkedin-icon"
-          />{" "}
-          María
+          />
+          <span className="linkedin-name">María</span>
         </a>
       </div>
     </p>
