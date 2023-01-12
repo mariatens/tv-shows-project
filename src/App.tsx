@@ -7,6 +7,7 @@ import { searchCriteriaTvShows } from "./utils/searchCriteriaTvShows";
 import "./style.css";
 import { ITvShow, TvShowView } from "./components/TvShowView";
 import { TvShowSelector } from "./components/ShowSelector";
+import headerImg from "./imgs/header-img.jpg";
 
 function App(): JSX.Element {
   const [input, setInput] = useState<string>("");
@@ -115,6 +116,7 @@ function App(): JSX.Element {
   return (
     <>
       <header className="header">
+        <img src={headerImg} alt="" className="header-img" />
         <h1 className="title" onClick={() => setView(false)}>
           {" "}
           TV show DataBase{" "}

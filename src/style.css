@@ -7,7 +7,10 @@
 .header {
   display: flex;
   justify-content: space-between;
-  background: lightblue;
+}
+.header-img {
+  height: 400px;
+  width: 1000px;
 }
 
 .title {
@@ -127,4 +130,7 @@
   margin: 0;
   font: inherit;
   cursor: pointer;
+}
+.linkedin-icon {
+  width: 30px;
 }
