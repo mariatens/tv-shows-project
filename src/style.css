@@ -5,12 +5,14 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  position: relative;
 }
 .header-img {
-  height: 400px;
-  width: 1000px;
+  width: 100%;
+  grid-column: 4 / -1;
+  grid-row: 1;
 }
 
 .title {

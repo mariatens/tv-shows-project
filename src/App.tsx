@@ -7,7 +7,7 @@ import { searchCriteriaTvShows } from "./utils/searchCriteriaTvShows";
 import "./style.css";
 import { ITvShow, TvShowView } from "./components/TvShowView";
 import { TvShowSelector } from "./components/ShowSelector";
-import headerImg from "./imgs/header-img.jpg";
+import headerImg from "./imgs/Tv-show-database-header.png";
 
 function App(): JSX.Element {
   const [input, setInput] = useState<string>("");
@@ -116,7 +116,6 @@ function App(): JSX.Element {
   return (
     <>
       <header className="header">
-        <img src={headerImg} alt="" className="header-img" />
         <h1 className="title" onClick={() => setView(false)}>
           {" "}
           TV show DataBase{" "}
@@ -152,6 +151,7 @@ function App(): JSX.Element {
             </p>
           )}
         </div>
+        <img src={headerImg} alt="header" className="header-img" />
       </header>
       {!view ? (
         <div className="all-episodes">{filteredShowsRender}</div>
