@@ -18,17 +18,25 @@
   margin-left: 10px;
 }
 .title:hover {
-  color: white;
+  color: rgb(255, 222, 113);
   margin-left: 10px;
   cursor: pointer;
 }
 
 .search-bar {
-  height: 20px;
+  height: 25px;
   width: 200px;
-  margin-top: 30px;
-  margin-right: 20px;
-  border-radius: 5%;
+  margin: 30px 30px 5px 0px;
+  padding-left: 5px;
+  border-radius: 5px;
+  border-color: grey;
+  color: black;
+  border-width: 1px;
+  background-color: rgb(240, 245, 255);
+}
+.search-bar::placeholder {
+  color: rgb(6, 6, 6);
+  padding-left: 5px;
 }
 
 .display-amount {
@@ -91,10 +99,17 @@
   margin-right: 100px;
   margin-top: 30px;
 }
-
 .dropdown-button {
   width: 300px;
+  border-width: 1px;
+  border-radius: 5px;
+  height: 25px;
+  background-color: rgb(240, 245, 255);
 }
+.dropdown-button:hover {
+  background-color: rgb(214, 228, 253);
+}
+
 .menu {
   height: 200px;
   overflow-y: scroll;

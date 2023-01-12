@@ -141,7 +141,7 @@ function App(): JSX.Element {
               </ul>
             ) : null}
           </div>
-          <div className="search-bar-&-amount">
+          <div className="search-bar-n-amount">
             <SearchBar value={input} onChange={handleSearchInput} />
             {view ? (
               <p className="display-amount">
