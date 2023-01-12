@@ -7,7 +7,7 @@ import { searchCriteriaTvShows } from "./utils/searchCriteriaTvShows";
 import "./style.css";
 import { ITvShow, TvShowView } from "./components/TvShowView";
 import { TvShowSelector } from "./components/ShowSelector";
-import headerImg from "./imgs/Tv-show-database-header.png";
+import headerImg from "./imgs/latest-header.png";
 
 function App(): JSX.Element {
   const [input, setInput] = useState<string>("");
