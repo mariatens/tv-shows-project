@@ -8,6 +8,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   position: relative;
+
+  grid-column: 4 / -1;
+  grid-row: 1;
 }
 .header-div {
   display: flex;
@@ -59,13 +62,22 @@
   text-shadow: 2px 2px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0),
     0 0 0.2em rgb(0, 0, 0);
 }
+.header-n-content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  position: relative;
+}
 
 /* flex box */
-.all-episodes {
+.all-content {
   display: flex;
   flex-wrap: wrap;
   flex-flow: row wrap;
   justify-content: center;
+  grid-column: 1 / span 8;
+  grid-row: 1;
+  margin-top: 50%;
+  z-index: 1;
 }
 .episode {
   width: 250px;
